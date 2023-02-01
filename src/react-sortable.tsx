@@ -37,11 +37,6 @@ const store: Store = { dragging: null };
 export class ReactSortable<T extends ItemInterface> extends Component<
   ReactSortableProps<T>
 > {
-  /* eslint-disable-next-line */
-  static defaultProps: Partial<ReactSortableProps<any>> = {
-    clone: (item) => item,
-  };
-
   private ref: RefObject<HTMLElement>;
   constructor(props: ReactSortableProps<T>) {
     super(props);
@@ -388,6 +383,10 @@ Please read the updated README.md at https://github.com/SortableJS/react-sortabl
     });
     setList(newList, this.sortable, store);
   }
+}
+
+ReactSortable.defaultProps = {
+  clone: (item) => item,
 }
 
 // everything below this point can be removed
